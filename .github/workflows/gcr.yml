@@ -1,0 +1,23 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Pull Image
+      run: |
+        docker pull k8s.gcr.io/pause
+        docker pull k8s.gcr.io/kube-proxy
+    - name: Test
+      run: |
+        docker images
