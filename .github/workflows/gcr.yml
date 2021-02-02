@@ -16,8 +16,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Pull Image
       run: |
-        docker pull k8s.gcr.io/pause
-        docker pull k8s.gcr.io/kube-proxy
+        docker pull k8s.gcr.io/kube-proxy:v1.20.2
+        docker pull k8s.gcr.io/kube-controller-manager:v1.20.2
     - name: Test
       run: |
         docker images
